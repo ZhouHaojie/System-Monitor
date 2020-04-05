@@ -7,8 +7,8 @@ float Processor::Utilization() {
     long idle = LinuxParser::Jiffies();
 
     long totald = total - this->preTotal;
-    long idled = idle - this ->preIdle;
-    float cpu_percentage = float (totald - idled)/totald;
+    long idled = idle - this->preIdle;
+    float cpu_percentage = float ((totald - idled)/totald);
 
     return cpu_percentage;
 }

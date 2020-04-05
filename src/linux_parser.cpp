@@ -272,7 +272,7 @@ string LinuxParser::Ram(int pid) {
       }
     }
   }
-  return to_string(ram / 1024) + " MB"; 
+  return to_string(ram / 1024); 
 }
 
 // Read and return the user ID associated with a process
@@ -331,7 +331,8 @@ long LinuxParser::UpTime(int pid) {
     for (int token_id = 1; token_id <= 22; ++token_id) {
       if (token_id == CPUStates::kStarttime) {
         linestream >> start_time;
-      } else {
+      } 
+      else {
         linestream >> placeholder;
       }
     }
