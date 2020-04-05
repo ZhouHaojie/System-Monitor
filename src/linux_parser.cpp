@@ -66,7 +66,7 @@ vector<int> LinuxParser::Pids() {
   return pids;
 }
 
-// TODO: Read and return the system memory utilization
+// Read and return the system memory utilization
 float LinuxParser::MemoryUtilization() {
   string line;
   string key;
@@ -107,7 +107,7 @@ long LinuxParser::UpTime() {
 }
 
 
-// TODO: Read and return CPU utilization
+// Read and return CPU utilization
 vector<string> LinuxParser::CpuUtilization() {
   vector<string> cpu_list;
   string line;
@@ -125,7 +125,7 @@ vector<string> LinuxParser::CpuUtilization() {
   return cpu_list;
 }
 
-// TODO: Read and return the number of jiffies for the system
+// Read and return the number of jiffies for the system
 
 long LinuxParser::Jiffies() { 
   // string line;
@@ -151,7 +151,7 @@ long LinuxParser::Jiffies() {
   return jiffies; 
 }
 
-// TODO: Read and return the number of active jiffies for a PID
+// Read and return the number of active jiffies for a PID
 // REMOVE: [[maybe_unused]] once you define the function
 long LinuxParser::ActiveJiffies(int pid) {
   string line;
@@ -173,7 +173,7 @@ long LinuxParser::ActiveJiffies(int pid) {
   return 0;  
 }
 
-// TODO: Read and return the number of idle jiffies for the system
+// Read and return the number of idle jiffies for the system
 long LinuxParser::IdleJiffies() {
   // string line;
   // string cpu;
@@ -195,13 +195,13 @@ long LinuxParser::IdleJiffies() {
   return idle_jiffies;
 }
 
-// TODO: Read and return the number of active jiffies for the system
+// Read and return the number of active jiffies for the system
 long LinuxParser::ActiveJiffies() { 
   return (Jiffies() - IdleJiffies());
 }
 
 
-// TODO: Read and return the total number of processes
+// Read and return the total number of processes
 int LinuxParser::TotalProcesses() {
   string line;
   string key;
@@ -221,7 +221,7 @@ int LinuxParser::TotalProcesses() {
   return total_processes;
 }
 
-// TODO: Read and return the number of running processes
+// Read and return the number of running processes
 int LinuxParser::RunningProcesses() {
   string line;
   string key;
@@ -241,7 +241,7 @@ int LinuxParser::RunningProcesses() {
   return proc_running;
 }
 
-// TODO: Read and return the command associated with a process
+// Read and return the command associated with a process
 string LinuxParser::Command(int pid) { 
   string line;
   string cmd_line;
@@ -255,7 +255,7 @@ string LinuxParser::Command(int pid) {
   return cmd_line;
 }
 
-// TODO: Read and return the memory used by a process
+// Read and return the memory used by a process
 string LinuxParser::Ram(int pid) {
   string line;
   string key;
@@ -275,7 +275,7 @@ string LinuxParser::Ram(int pid) {
   return to_string(ram / 1024) + " MB"; 
 }
 
-// TODO: Read and return the user ID associated with a process
+// Read and return the user ID associated with a process
 string LinuxParser::Uid(int pid) {
   string line;
   string key;
@@ -296,7 +296,7 @@ string LinuxParser::Uid(int pid) {
   return uid;
 }
 
-// TODO: Read and return the user associated with a process
+// Read and return the user associated with a process
 string LinuxParser::User(int pid) {
   string line;
   string user;
@@ -316,7 +316,7 @@ string LinuxParser::User(int pid) {
   return user;
 }
 
-// TODO: Read and return the uptime of a process
+// Read and return the uptime of a process
 long LinuxParser::UpTime(int pid) {
   string line;
   string placeholder;
