@@ -87,8 +87,9 @@ float LinuxParser::MemoryUtilization() {
       else if(key == "MemFree:"){
         mem_free = mem_value;
       }
-      mem_used = mem_total - mem_free;
+      
     }  
+    mem_used = mem_total - mem_free;
   }
   return float(mem_used / mem_total);
 }
@@ -225,20 +226,20 @@ int LinuxParser::TotalProcesses() {
 int LinuxParser::RunningProcesses() {
   string line;
   string key;
-  int proc_running;
+  int procs_running;
   std::ifstream stream(kProcDirectory + kStatFilename);
   if (stream.is_open()) {
     while (std::getline(stream, line)) {
       std::istringstream linestream(line);
       while (linestream >> key) {
-        if (key == "proc_running") {
-          linestream >> proc_running;
+        if (key == "procs_running") {
+          linestream >> procs_running;
           break;
         }
       }
     }
   }
-  return proc_running;
+  return procs_running;
 }
 
 // Read and return the command associated with a process
