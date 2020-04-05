@@ -23,6 +23,7 @@ vector<Process>& System::Processes() { return processes_; }
 std::string System::Kernel() { return string(); }
 
 // TODO: Return the system's memory utilization
+//Total used memory = MemTotal - MemFree
 float System::MemoryUtilization() { return 0.0; }
 
 // TODO: Return the operating system name
