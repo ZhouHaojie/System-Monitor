@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <string>
 #include <vector>
+#include <iostream>
 
 #include "linux_parser.h"
 
@@ -153,7 +154,6 @@ long LinuxParser::Jiffies() {
 }
 
 // Read and return the number of active jiffies for a PID
-// REMOVE: [[maybe_unused]] once you define the function
 long LinuxParser::ActiveJiffies(int pid) {
   string line;
   int token_id=0;
@@ -162,7 +162,7 @@ long LinuxParser::ActiveJiffies(int pid) {
   string kPidDirectory = "/" + to_string(pid);
   std::ifstream stream(kProcDirectory + kPidDirectory + kUptimeFilename);
   if(stream.is_open()){
-    for(int i=1; i<=17; i++){
+    for(int i=0; i<=17; i++){
       std::istringstream linestream(line);
       if(token_id == CPUStates::kCstime || token_id == CPUStates::kCutime || token_id == CPUStates::kStime ||token_id ==CPUStates::kUtime){
         linestream >> value;
@@ -329,7 +329,7 @@ long LinuxParser::UpTime(int pid) {
   if (stream.is_open()) {
     std::getline(stream, line);
     std::istringstream linestream(line);
-    for (int token_id = 1; token_id <= 22; ++token_id) {
+    for (int token_id = 0; token_id <= 21; token_id++) {
       if (token_id == CPUStates::kStarttime) {
         linestream >> start_time;
       } 
